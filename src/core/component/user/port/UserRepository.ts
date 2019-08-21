@@ -7,3 +7,7 @@ export interface UserRepository {
 
     save(user: User): Promise<User>;
 }
+
+const UserRepositoryType = Symbol.for('UserRepository');
+
+export {UserRepositoryType}

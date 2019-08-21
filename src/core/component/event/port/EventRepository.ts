@@ -1,3 +1,5 @@
+import {Event} from '../domain/data/Event'
+
 export interface EventRepository {
     findById(id: number): Promise<Event | null>;
 
@@ -5,5 +7,9 @@ export interface EventRepository {
 
     findByStartDateRange(dateFrom: Date, dateTo: Date): Promise<Event[]>;
 
-    save(): Promise<Event>;
+    save(event: Event): Promise<Event>;
 }
+
+const EventRepositoryType = Symbol.for('EventRepository');
+
+export {EventRepositoryType};

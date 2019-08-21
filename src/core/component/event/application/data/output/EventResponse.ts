@@ -1,16 +1,16 @@
-import {EventType} from './EventType';
+import {EventType} from '../../../domain/data/EventType';
 
-interface EventBuilderObj {
-    id?: number,
+interface EventResponseBuilderObj {
+    id?: number | undefined | null,
     title: string,
     startDate: Date,
     endDate: Date,
     creatorId: number,
     eventType: EventType,
-    createdAt?: Date
+    createdAt?: Date | undefined| null
 }
 
-export class Event {
+export class EventResponse {
     id: number | null;
 
     title: string;
@@ -25,8 +25,8 @@ export class Event {
 
     createdAt: Date | null;
 
-    public static fromObject(builder: EventBuilderObj): Event {
-        const event = new Event();
+    public static fromObject(builder: EventResponseBuilderObj): EventResponse {
+        const event = new EventResponse();
         event.id = builder.id || null;
         event.title = builder.title;
         event.startDate = builder.startDate;
