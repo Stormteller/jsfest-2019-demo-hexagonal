@@ -17,7 +17,7 @@ export class EventCreationService {
         @inject(EventRepositoryType) eventRepo: EventRepository,
         @inject(EventReminderService) reminderService: EventReminderService,
         @inject(EventConverter) eventConverter: Converter<Event, EventResponse>
-) {
+    ) {
         this.eventRepo = eventRepo;
         this.reminderService = reminderService;
         this.eventConverter = eventConverter;
@@ -31,7 +31,7 @@ export class EventCreationService {
 
         const savedEvent = await this.eventRepo.save(newEvent);
 
-        await this.reminderService.setupReminder(savedEvent)
+        await this.reminderService.setupReminder(savedEvent);
 
         return this.eventConverter.from(savedEvent);
     }

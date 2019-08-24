@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Stormteller/jsfest-2019-demo-hexagonal#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.1.10",
     "class-validator": "^0.9.1",
     "class-validator-jsonschema": "^1.2.0",
     "dotenv": "^6.1.0",

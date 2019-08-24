@@ -1,3 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Node template
 # Logs
 logs
 *.log
@@ -61,3 +63,29 @@ typings/
 .next
 
 .idea/
+.terraform/
+dist/
+.env.*
+!.env.example
+!.env.ci
+
+*.tfstate
+*.tfstate.*
+!*.tfstate.example
+
+*.tfvars
+
+*.pem
+*.pem.pub
+
+.nyc_output
+coverage
+*.lcov
+.DS_Store
+dump.rdb
+/postgresdb/
+/concat_sql.py
+/out.sql
+
+firebase-magic-auth-file.json
+/.vscode/

@@ -12,7 +12,7 @@ import {
     useExpressServer
 } from 'routing-controllers';
 import {createDIContainer} from './configuration/DIContainer';
-import {createConnectionPool} from './postgres/Connection';
+import {createConnectionPool} from './secondaryAdapters/postgres/Connection';
 
 class AppInitializer {
     public app: express.Application;
@@ -55,8 +55,9 @@ class AppInitializer {
             routePrefix: config.apiPrefix,
             defaultErrorHandler: false,
             validation: true,
-            authorizationChecker: (action: Action) => true,
-            currentUserChecker: (action: Action) => 1
+            classTransformer: true,
+            authorizationChecker: (action: Action) => action.request.get('user_id') != null,
+            currentUserChecker: (action: Action) => Number(action.request.get('user_id'))
         };
         useContainerRoutingController(this.diContainer);
         useExpressServer(this.app, this.routingControllerOptions);

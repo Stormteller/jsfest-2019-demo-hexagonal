@@ -34,9 +34,13 @@ function configuration(): ConfigInterface {
         logger: {
             level: process.env.NODE_ENV === 'local' ? 'debug' : 'info'
         },
-        controllerPaths: [__dirname + '/../**/**/*Controller.js'],
+        controllerPaths: [__dirname + '/../primaryAdapters/rest/**/*Controller.js'],
         middlewarePaths: [__dirname + '/../web/core/HttpErrorHandlers.js'],
-        diContainerModulesPath: [__dirname + '/../**/**/*ContainerModule.js'],
+        diContainerModulesPath: [
+            __dirname + '/../core/component/**/*ContainerModule.js',
+            __dirname + '/../primaryAdapters/**/*ContainerModule.js',
+            __dirname + '/../secondaryAdapters/**/*ContainerModule.js',
+        ],
     };
 }
 
