@@ -5,9 +5,9 @@ export async function createConnectionPool(): Promise<Connection> {
     Object.assign(connectionOptions, {
         synchronize: false,
         logging: true,
-        entities: ['dist/secondaryAdapters/postgres/**/*Entity.js'],
-        migrations: ['dist/migrations/*.js'],
-        migrationsDir: 'dist/migrations',
+        entities: ['dist/src/secondaryAdapters/postgres/**/*Entity.js'],
+        migrations: ['dist/src/migrations/*.js'],
+        migrationsDir: 'dist/src/migrations',
         migrationsRun: true
     });
     return await createConnection(connectionOptions);
